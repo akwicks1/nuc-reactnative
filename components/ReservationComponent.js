@@ -3,15 +3,14 @@ import { Text, View, ScrollView, StyleSheet,
     Picker, Switch, Button, Modal } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-
 class Reservation extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            campers: 1, 
-            hikeIn: false, 
+            campers: 1,
+            hikeIn: false,
             date: new Date(),
             showCalendar: false,
             showModal: false
@@ -34,7 +33,7 @@ class Reservation extends Component {
     resetForm() {
         this.setState({
             campers: 1,
-            hikeIn: false, 
+            hikeIn: false,
             date: new Date(),
             showCalendar: false,
             showModal: false
@@ -51,7 +50,7 @@ class Reservation extends Component {
                         selectedValue={this.state.campers}
                         onValueChange={itemValue => this.setState({campers: itemValue})}
                     >
-                        <Picker.Item label='1' value='1' /> 
+                        <Picker.Item label='1' value='1' />
                         <Picker.Item label='2' value='2' />
                         <Picker.Item label='3' value='3' />
                         <Picker.Item label='4' value='4' />
@@ -60,7 +59,7 @@ class Reservation extends Component {
                     </Picker>
                 </View>
                 <View style={styles.formRow}>
-                <Text style={styles.formLabel}>Hike-In?</Text>
+                    <Text style={styles.formLabel}>Hike-In?</Text>
                     <Switch
                         style={styles.formItem}
                         value={this.state.hikeIn}
@@ -69,7 +68,7 @@ class Reservation extends Component {
                     />
                 </View>
                 <View style={styles.formRow}>
-                <Text style={styles.formLabel}>Date</Text>
+                    <Text style={styles.formLabel}>Date</Text>
                     <Button
                         onPress={() =>
                             this.setState({showCalendar: !this.state.showCalendar})
@@ -85,7 +84,7 @@ class Reservation extends Component {
                         mode={'date'}
                         display='default'
                         onChange={(event, selectedDate) => {
-                            selectedDate && this.setState({date: selectedDate, showCalendar: false});
+                            selectedDate && this.setState({date: selectedDate, showCalendar: false})
                         }}
                         style={styles.formItem}
                     />
@@ -110,7 +109,7 @@ class Reservation extends Component {
                             Number of Campers: {this.state.campers}
                         </Text>
                         <Text style={styles.modalText}>
-                            Hike-In? : {this.state.hikeIn ? 'Yes' : 'No'}
+                            Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}
                         </Text>
                         <Text style={styles.modalText}>
                             Date: {this.state.date.toLocaleDateString('en-US')}
@@ -120,7 +119,7 @@ class Reservation extends Component {
                                 this.toggleModal();
                                 this.resetForm();
                             }}
-                            color='5637DD'
+                            color='#5637DD'
                             title='Close'
                         />
                     </View>
@@ -162,9 +161,5 @@ const styles = StyleSheet.create({
         margin: 10
     }
 });
-
-
-
-
 
 export default Reservation;
